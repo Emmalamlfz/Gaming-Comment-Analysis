@@ -1,7 +1,7 @@
 # Genshin-Impact-Comment-Analysis
 School Project--Operation Optimization with a Dive into Genshin Impact’s Comment
 
-[Final Report/Deliverable](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Genshin%20Impact.pdf)
+[Presentation Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Genshin%20Impact.pdf)
 
  ## Table of content:
    
@@ -16,6 +16,8 @@ School Project--Operation Optimization with a Dive into Genshin Impact’s Comme
  [5. Project Design](#item-five)
 
  [6. Data Set](#item-six)
+
+ [7. Final Report](#item-seven)
 
 <a id="item-one"></a>
 ## 1. Business Problem Statement
@@ -114,51 +116,18 @@ We leveraged score and sentiment polarity to construct player attitude from comm
 
  $$𝐴𝑡𝑡𝑖𝑡𝑢𝑑𝑒 = 0.3 ∗ 𝑆𝑐𝑜𝑟𝑒 + 0.7 ∗ 𝑃𝑜𝑙𝑎𝑟𝑖𝑡𝑦$$
 
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/2a80bbf1-915d-432e-bf7f-9698624cf9a6)
-
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/01ea1538-2968-4946-bd06-7a305d84dd56)
-
 We took polarity into account because there were cases where the review is with a high score but negative sentiment, suggesting the inconsistency of score and sentiment polarity. So, the
 score alone may not truly represent the reviewer’s attitude. Hence it is essential to consider the sentiment polarity when constructing the attitude.
-
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/7143cfd6-8831-4564-ab51-b87bef20a642)
 
 Secondly, we focus more on negative or low-score reviews from players since they reflect the attitude drop lie in players which may ultimately lead to a reputation drop. Among all useful
 comments (number of thumbs > 6) in our data set, if we group them by score, there are 59% low/medium comments. If we group them by polarity, there are 79% negative/neutral comments.
 So, clearly, polarity captured more comments of our interest. Therefore, we give polarity more weight than score. By giving more weight to polarity, the indicator will be more sensitive to
 negative and neutral polarity therefore effectively capturing the attitude drop. This is in line with the concern of the operation team.
 
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/4de2324f-5f35-4266-8bed-ce9b63391a55)
+<a id="item-seven"></a>
+## 7. Final Report
 
-## 7.Objective 1: Update the Auto-Reply Corpus
-### 7.1 Topic Modeling – LDA
-First, data pre-processing was conducted for LDA. During the data pre-processing, we also derived additional comment-based stop words which have high frequency but play trifling roles in defining the topics.
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/54129219-4e36-4552-802c-61eeb4c87c17)
 
-Considering both model performance and contextual information about the game, we came up with an acceptable model (chunk size = 4, passes = 10, UMass coherence = -2.5639, CV coherence = 0.4093) displaying four topics.
-
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/c2cd05b9-5568-4550-8193-547953556759)
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/8e1b4e62-9c56-4d1d-bebf-0067e72977ce)
-
-Summarizing the most relevant terms, we named the four topics.
-
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/413e8d7d-bbfa-4e56-92f9-69f4c701574c)
-
-The first topic, which covers the greatest proportion of tokens, is about the story design. The related comments show appreciation to the story design where characters are elaborately involved.
-
-The second topic is about the technical problems encountered when playing the game on mobile devices. The main problems include: the game is occupying too much storage, the controller sometimes does not work as smoothly as expected, or there are some bugs reported.
-The third topic is about the Graphic. The game is excellent in its Graphic of both the world and the characters. Each update brings a surprise. The fourth topic is about character design. Besides an amazing look and well-designed outfit, the motions of the characters, especially the effects during the fighting, are highly appraised.
-
-![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/5e374a5d-d524-4f7e-a4b1-d7032d00a9be)
-
-Among all the comments, topics about Graphic and story design occupy a lion’s share. Next follows the character design and technical problems. Therefore, we suggested the operation team redesign the auto-reply corpus into such a distribution of topics.
-
-### 7.2 Distribution of Sentiment (Polarity)
-Besides topic, sentiment distribution, especially polarity, is also a crucial factor to consider. Within the range from -1 to 1, we divided the polarity of sentiment into 4 parts: strong negative, moderate negative, moderate positive and strong positive, with -0.5, 0 and 0.5 as the separations.
-
-![Figure 9. Sentiment (Polarity) distribution](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/dab9d069-3231-432d-ae70-5de9a97923a8)
-
-Following a relative normal distribution, there are 55% positive comments, and 45% negative comments. In re-designing the autoreply corpus, such a sentiment distribution can also serve as a guide for the operation team.
 
 
 

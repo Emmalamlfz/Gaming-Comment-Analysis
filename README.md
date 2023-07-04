@@ -9,6 +9,7 @@ Our presentation Report can be seen in this link:
 [Presentation Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Genshin%20Impact.pdf)
 
 Technical Solution and roadmap can be seen in this link:
+[Final Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Report.pdf)
 
  ## Table of content:
    
@@ -133,7 +134,7 @@ negative and neutral polarity therefore effectively capturing the attitude drop.
 
 <a id="item-seven"></a>
 ## 7. Final Report
-
+[Final Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Report.pdf)
 
 
 

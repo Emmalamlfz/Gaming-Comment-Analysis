@@ -1,5 +1,5 @@
 # Genshin-Impact-Comment-Analysis
-This is a School Project from NUS. 
+This is one of a group project I've done in NUS
 * We Web Scrapped data from Google Play Store, pre-processed for player reviews, conducted exploratory analytics e.g., Sentiment Analytics, LDA modelling for context clustering.
 * Generated word cloud maps for positive and negative reviews, made advice on corpus design based on the review content.
 * Utilized Logistic regression and Random Forest to discover the relationship between indicators and classify useful comments.

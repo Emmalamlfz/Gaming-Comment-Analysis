@@ -1,55 +1,73 @@
-# Genshin-Impact-Comment-Analysis
+# Gaming Comment Analysis - Genshin Impact
 <div style="text-align:center;">
   <img src="image/cover.png" alt="Screenshot" style="width:100%; max-width:600px;">
 </div>
 
- ## Table of content:
-   
- [1. Business Problem Statement](#item-one)
+ ## Table of content
+
+1. [Demo](#Demo)
+2. [Project Background](#project-background)
+3. [Business & Technical Objectives](#Business-&-Technical-Objectives)
+4. [Stakeholder Strategy](#Stakeholder-Strategy)
+5. [Tools & Techniques](#Tools-&-Techniques)
+6. [Data Description](#Data-Description)
+7. [Project Design](#Project-Design)
+8. [Data Preparation](#Data-Preparation)
+9. [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+10. [Data Analysis](#Data-Analysis)
+11. [Conclusions and Recommendations](#conclusions-and-recommendations)
+
+
  
- [2. Business & Technical Objectives](#item-two)
- 
- [3. Technical Objectives](#item-three)
+## Demo 
+- [Final Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Genshin%20Impact.pdf)
+- [Detailed Technical Solutions & Roadmap](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Report.pdf)
 
- [4. Stakeholder Strategy](#item-four)
 
- [5. Project Design](#item-five)
 
- [6. Data Set](#item-six)
+## Project Background
+Genshin Impact, a prevailing open-word action role-playing game launched in Sep 2020, has recently reached its second anniversary. It was awarded Best Mobile Game in 2021 and remains on the list of top-grossing mobile games worldwide since its launch (2020-2022).
 
- [7. Final Report](#item-seven)
+As the player pool grows larger, the number and the variety of comments in the application stores also grow larger. As popular as it is today, a potential reputation drop would be costly. And meanwhile, for the two developing new games with similar target players, what might be the alerts, and what can be referenced?
 
-<a id="item-one"></a>
-## 1. Business Problem Statement
-Genshin Impact, a prevailing open-word action role-playing game launched in Sep 2020, has
-recently reached its second anniversary. It was awarded Best Mobile Game in 2021 and remains
-on the list of top-grossing mobile games worldwide since its launch (2020-2022).
 
-As the player pool grows larger, the number and the variety of comments in the application stores
-also grow larger. As popular as it is today, a potential reputation drop would be costly. And
-meanwhile, for the two developing new games with similar target players, what might be the
-alerts, and what can be referenced?
 
- <a id="item-two"></a>
-## 2. Business & Technical Objectives
-### Business Objectives
-* To deal with the growing variety in comments, the operation team wants to update the autoreply corpus. To design new automatic replies, the distribution of sentiment and topics are requested.
-* What is complained by the players, and what is appreciated? In knowing these, improvements can be made for Genshin Impact and the appreciated features can be referenced by the two developing games.
-* In preventing a reputation crisis, the operation team wants to detect what is the timing to take some maintenance actions in advance.
+## Business & Technical Objectives
+- **Business Objectives**:
+   - To deal with the growing variety in comments, the operation team wants to update the autoreply corpus. To design new automatic replies, the distribution of sentiment and topics are requested.
+   - What is complained by the players, and what is appreciated? In knowing these, improvements can be made for Genshin Impact and the appreciated features can be referenced by the two developing games.
+   - In preventing a reputation crisis, the operation team wants to detect what is the timing to take some maintenance actions in advance.
 
- <a id="item-three"></a>
-## 3. Technical Objectives
-* Conduct sentiment analysis and LDA over the comments to know the sentiment and topic distribution.
-* Develop a classification model that served as a pre-warning model to decide whether the comments are showing an alert so that actions need to be taken to appease the players.
-* Through word cloud analysis and LDA on focused groups of comments, to find out what is doing bad for refinement, and what is doing good for the new games' reference.
+- **Technical Objectives**:
+   - Conduct sentiment analysis and LDA over the comments to know the sentiment and topic distribution.
+   - Develop a classification model that served as a pre-warning model to decide whether the comments are showing an alert so that actions need to be taken to appease the players.
+   - Through word cloud analysis and LDA on focused groups of comments, to find out what is doing bad for refinement, and what is doing good for the new games' reference.
 
-<a id="item-four"></a>
-## 4. Stakeholder Strategy
+
+## Stakeholder Strategy
 
 ![image](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/3b696aa3-b233-4916-82cd-43d7420b5f44)
 
-<a id="item-five"></a>
-## 5. Project Design
+
+## Tools & Techniques
+- **Tech Stack**: Python, R
+- **Techniques**: Webscrapping, Text Analytics(Sentiment Analysis, LDA), Classification, Forecasting
+
+
+## Data Description
+### Players’ Comments from Google Play Store
+Our data was crawled from the Google Play store. Originally, there are 8 variables, which include both numerical and categorical variables: “reviewID”, “content”, “score”, “thumbsUpCount”, “reviewCreatedVersion”, “at”, “replyContent”, “repliedAt”. We newly created 7 additional variables: “Polarity”, “subjectivity”, “ABS”, “attitude”, “review_length”, “usefulness”, “days of comment”. In total, we have 15 variables.
+There are 1273 observations in the dataset. We also have 642 fresh comments dated after 14 Oct as our deployment dataset. When building the classification model, we used 70% of historical data as the training set and 30% as the testing set.
+
+### Google Trends
+We crawled weekly google impact data from the official website of google trends for Genshin from September 2020 to October 2022. There are 2 variables “week” and “google impact”. We use this data to compute the time series analysis and prediction.
+
+###  Performance Data of Genshin Impact
+On the other hand, we scrabbled some variables to find whether they have correlation with the performance of the Genshin Impact, which includes numerical variables: "App_revenue", "app_downloads", "Avg_google_impact", "Num_hours_watched_Twitch", and "Average_Monthly_Players", and "google_impact".
+
+
+
+## Project Design
 ###  Data Management
 In terms of data management for this project, we initially extracted Genshin’s comments, game performance data and industry data from various external sources. Before loading the data-todata warehouse, we conducted data validation, cleaning, transformation and integration, including dealing with data inconsistency, removing duplication and outliers, imputing missing values as needed, and deriving new variables. In the process of analysis, we selected valuable features from the warehouse and took advantage of BI tools to derive insights.
 
@@ -59,19 +77,6 @@ In terms of data management for this project, we initially extracted Genshin’s
 
 ![Figure 2. Analytical pathway](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/assets/110097027/afbcd622-3d5c-4a72-b086-b64c25094929)
 
-<a id="item-six"></a>
-## 6. Data Set
-### Players’ Comments from Google Play Store
-Our data was crawled from the Google Play store. Originally, there are 8 variables, which include both numerical and categorical variables: “reviewID”, “content”, “score”, “thumbsUpCount”,
-“reviewCreatedVersion”, “at”, “replyContent”, “repliedAt”. We newly created 7 additional variables: “Polarity”, “subjectivity”, “ABS”, “attitude”, “review_length”, “usefulness”, “days of
-comment”. In total, we have 15 variables (See Appendix 1).
-There are 1273 observations in the dataset. We also have 642 fresh comments dated after 14 Oct as our deployment dataset. When building the classification model, we used 70% of historical data as the training set and 30% as the testing set.
-
-### Google Trends
-We crawled weekly google impact data from the official website of google trends for Genshin from September 2020 to October 2022. There are 2 variables “week” and “google impact”. We use this data to compute the time series analysis and prediction (See Appendix 2) .
-
-###  Performance Data of Genshin Impact
-On the other hand, we scrabbled some variables to find whether they have correlation with the performance of the Genshin Impact, which includes numerical variables: "App_revenue", "app_downloads", "Avg_google_impact", "Num_hours_watched_Twitch", and "Average_Monthly_Players", and "google_impact"(See Appendix 3).
 
 ## Data Preparation
 ### Data Cleaning
@@ -124,26 +129,8 @@ comments (number of thumbs > 6) in our data set, if we group them by score, ther
 So, clearly, polarity captured more comments of our interest. Therefore, we give polarity more weight than score. By giving more weight to polarity, the indicator will be more sensitive to
 negative and neutral polarity therefore effectively capturing the attitude drop. This is in line with the concern of the operation team.
 
-<a id="item-seven"></a>
-## 7. Final Report
-[Final Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Report.pdf)
 
 
-
-
-
-
-This is one of a group project I've done in NUS
-* We Web Scrapped data from Google Play Store, pre-processed for player reviews, conducted exploratory analytics e.g., Sentiment Analytics, LDA modelling for context clustering.
-* Generated word cloud maps for positive and negative reviews, made advice on corpus design based on the review content.
-* Utilized Logistic regression and Random Forest to discover the relationship between indicators and classify useful comments.
-* Used sentiment scores and ratings to build a composite metric, with the percentage of useful reviews in a bad review as the threshold for triggering alerts in a time window. 
-
-Our presentation Report can be seen in this link:
-[Presentation Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Genshin%20Impact.pdf)
-
-Technical Solution and roadmap can be seen in this link:
-[Final Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Report.pdf)
 
 
 

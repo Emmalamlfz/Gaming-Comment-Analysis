@@ -1,4 +1,7 @@
 # Genshin-Impact-Comment-Analysis
+<div style="text-align:center;">
+  <img src="image/cover.png" alt="Screenshot" style="width:100%; max-width:600px;">
+</div>
 
  ## Table of content:
    

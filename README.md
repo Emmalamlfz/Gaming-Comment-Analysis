@@ -1,15 +1,9 @@
 # Genshin-Impact-Comment-Analysis
-This is one of a group project I've done in NUS
-* We Web Scrapped data from Google Play Store, pre-processed for player reviews, conducted exploratory analytics e.g., Sentiment Analytics, LDA modelling for context clustering.
-* Generated word cloud maps for positive and negative reviews, made advice on corpus design based on the review content.
-* Utilized Logistic regression and Random Forest to discover the relationship between indicators and classify useful comments.
-* Used sentiment scores and ratings to build a composite metric, with the percentage of useful reviews in a bad review as the threshold for triggering alerts in a time window. 
+![image](https://github.com/user-attachments/assets/45ac66d6-0b7c-47cd-b5bb-d1718ed0e0a0)
 
-Our presentation Report can be seen in this link:
-[Presentation Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Genshin%20Impact.pdf)
-
-Technical Solution and roadmap can be seen in this link:
-[Final Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Report.pdf)
+<div style="text-align:center;">
+  <img src="(https://github.com/user-attachments/assets/45ac66d6-0b7c-47cd-b5bb-d1718ed0e0a0]" alt="描述" style="width:100%; max-width:600px;">
+</div>
 
  ## Table of content:
    
@@ -138,6 +132,20 @@ negative and neutral polarity therefore effectively capturing the attitude drop.
 
 
 
+
+
+
+This is one of a group project I've done in NUS
+* We Web Scrapped data from Google Play Store, pre-processed for player reviews, conducted exploratory analytics e.g., Sentiment Analytics, LDA modelling for context clustering.
+* Generated word cloud maps for positive and negative reviews, made advice on corpus design based on the review content.
+* Utilized Logistic regression and Random Forest to discover the relationship between indicators and classify useful comments.
+* Used sentiment scores and ratings to build a composite metric, with the percentage of useful reviews in a bad review as the threshold for triggering alerts in a time window. 
+
+Our presentation Report can be seen in this link:
+[Presentation Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Genshin%20Impact.pdf)
+
+Technical Solution and roadmap can be seen in this link:
+[Final Report](https://github.com/Emmalamlfz/Genshin-Impact-Comment-Analysis/blob/main/Report.pdf)
 
 
 

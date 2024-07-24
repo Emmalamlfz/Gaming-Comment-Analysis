@@ -1,9 +1,4 @@
 # Genshin-Impact-Comment-Analysis
-![image](https://github.com/user-attachments/assets/45ac66d6-0b7c-47cd-b5bb-d1718ed0e0a0)
-
-<div style="text-align:center;">
-  <img src="(https://github.com/user-attachments/assets/45ac66d6-0b7c-47cd-b5bb-d1718ed0e0a0]" alt="描述" style="width:100%; max-width:600px;">
-</div>
 
  ## Table of content:
    
